@@ -39,10 +39,6 @@ User.init(
         len: [8],
       },
     },
-    github: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
   },
   {
     hooks: {
