@@ -1,17 +1,15 @@
-{{#with userData}}
-  {{>profile userId=../userId}}
-{{/with}}
+{{> profile userData}}
+{{!-- <h1>{{userData.firstName}}</h1> --}}
 
-    {{!EDIT ICON!}}
-    <div class="col" id="edit">
-      <div class="text-end flex-start">
-        {{#if (check_id userData.id userId)}}
-        <i id='edit-profile' class="bi bi-pencil-square"></i>
-        <script src="/js/profile.js"></script>
-        {{/if}}
-      </div>
-    </div>
+{{!EDIT ICON!}}
+<div class="col" id="edit">
+  <div class="text-end flex-start">
+    {{#if (check_id userData.id userId)}}
+    <i id='edit-profile' class="bi bi-pencil-square"></i>
+    <script src="/js/profile.js"></script>
+    {{/if}}
   </div>
-
+</div>
 </div>
 
+</div>
