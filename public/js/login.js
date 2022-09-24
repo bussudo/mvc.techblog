@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     });
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      const data = await response.json()
+      const data = await response.json();
       const id = data.user.id;
       document.location.replace(`/profile/${id}`);
     } else {
@@ -26,14 +26,23 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector("#name-signup").value.trim();
+  // const name = document.querySelector("#name-signup").value.trim();
   const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
 
-  if (name && email && password) {
+  const fName = document.querySelector("#fname-signup").value.trim();
+  const lName = document.querySelector("#lname-signup").value.trim();
+  // if (name && email && password) {
+  //   const response = await fetch("/api/users", {
+  //     method: "POST",
+  //     body: JSON.stringify({ name, email, password }),
+  //     headers: { "Content-Type": "application/json" },
+  //   });
+
+  if (email && password) {
     const response = await fetch("/api/users", {
       method: "POST",
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ fName, lName, email, password }),
       headers: { "Content-Type": "application/json" },
     });
 
