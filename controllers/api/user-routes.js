@@ -13,7 +13,8 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create({
-      name: req.body.name,
+      firstName: req.body.fName,
+      lastName: req.body.lName,
       email: req.body.email,
       password: req.body.password,
     });
