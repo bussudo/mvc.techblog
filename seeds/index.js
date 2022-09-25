@@ -11,7 +11,7 @@ const seedAll = async () => {
     individualHooks: true,
     returning: true,
   });
-
+  await Blog.bulkCreate(blogSeedData);
   process.exit(0);
 };
 
