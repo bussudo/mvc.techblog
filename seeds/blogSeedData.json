@@ -1,10 +1,12 @@
 [
   {
     "title": "Understanding Regex",
-    "contents": "This is a really great article about Regex"
+    "contents": "This is a really great article about Regex",
+    "user_id": 1
   },
   {
     "title": "Using MangoDB",
-    "contents": "Another great article, this one about MangoDB"
+    "contents": "Another great article, this one about MangoDB",
+    "user_id":1
   }
 ]

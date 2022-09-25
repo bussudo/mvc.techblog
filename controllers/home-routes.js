@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const gitBlog = require("../utils/blog.js");
-const { User } = require("../models");
+const { User, Blog } = require("../models");
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
@@ -21,7 +20,7 @@ router.get("/", async (req, res) => {
 
     // blogList = await blogRequest.homepageList(8);
     // blogList = { list: blogList };
-    g("userData", userData);
+    console.log("userData", userData);
     req.session.save(() => {
       if (req.session.countVisit) {
         req.session.countVisit++;
@@ -45,6 +44,22 @@ router.get("/search", async (req, res) => {
 });
 router.get("/search", async (req, res) => {
   res.render("search");
+});
+router.get("/dashboard", async (req, res) => {
+  console.log(req.session.userId);
+  Blog.findAll({
+    where: {
+      user_id: req.session.userId,
+    },
+  }).then((blogdata) => {
+    blogdata = blogdata.map((blog) => blog.get({ plain: true }));
+
+    console.log(blogdata);
+    res.render("dashboard", {
+      blogdata,
+      loggedIn: req.session.loggedIn,
+    });
+  });
 });
 
 router.get("/profile/:id", async (req, res) => {
