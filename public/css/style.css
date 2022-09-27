@@ -68,7 +68,7 @@ aside {
 
 .gallery {
   flex: 4;
-  background-color: #fff;
+  background-color: light;
   padding: 50px;
   display: flex;
   flex-flow: column wrap;
@@ -138,19 +138,26 @@ img {
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
+.dashboard {
+  display: flex;
+  width: max-content;
+}
+.dashboard div {
+
+}
+.createBtn {
+}
+
 .blog-card {
   margin: 0 0 20px 0;
   flex: 0 0 50%;
-  max-width: 50%;
+  max-width: 100%;
   padding: 5px;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #fff;
-  
-  /* height: 200px; */
-  color: var(--light);
+  background-color: var(--light);
 }
 
 .card blog {

@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const { User, Blog } = require("../models");
 
+router.get("./createBlog", (req, res) => {
+  res.render("./createBlog");
+});
+
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
