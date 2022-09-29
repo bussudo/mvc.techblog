@@ -4,5 +4,6 @@ submitBtn.addEventListener("click", async function () {
   let contents = document.getElementById("contentBlog").value;
   let response = await fetch("/api/blogs", {
     method: 'POST',
-    body: 
-  )}
+    body: JSON.stringify({ title, contents, user_id }),
+    headers: { 'Content-Type: application/json'},
+  });
