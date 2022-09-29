@@ -9,8 +9,10 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  const body = req.body;
+  body.user_id = req.session.userId;
   try {
-    const dbBlogData = await Blog.create(req.body);
+    const dbBlogData = await Blog.create(body);
     req.session.save(() => {
       res.status(200).json(dbBlogData);
     });
