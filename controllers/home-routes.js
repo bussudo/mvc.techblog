@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Blog } = require("../models");
 
-router.get("./createBlog", (req, res) => {
+router.get("/createBlog", (req, res) => {
   res.render("createBlog");
 });
 
@@ -46,8 +46,8 @@ router.get("/", async (req, res) => {
 router.get("/search", async (req, res) => {
   res.render("search");
 });
-router.get("/search", async (req, res) => {
-  res.render("search");
+router.get("/profile", async (req, res) => {
+  res.render("profile");
 });
 router.get("/dashboard", async (req, res) => {
   console.log(req.session.userId);

@@ -10,16 +10,13 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const dbBlogData = await Blog.create({
-      title: req.body.title,
-      contents: req.body.contents,
-    });
+    const dbBlogData = await Blog.create(req.body);
     req.session.save(() => {
       res.status(200).json(dbBlogData);
     });
   } catch (err) {
     console.log(err);
-    res.status(400).json(dbBlogData);
+    res.status(500).json(err);
   }
 });
 

@@ -20,6 +20,7 @@ Blog.init(
     user_id: {
       type: DataTypes.INTEGER,
       require: true,
+      allowNull: false,
       references: {
         model: "user",
         key: "id",
