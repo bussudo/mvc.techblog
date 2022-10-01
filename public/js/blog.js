@@ -1,6 +1,7 @@
 // Create Blog
 // function from createBlog.handlebars
 
+const router = require("../../controllers");
 const { Blog } = require("../../models");
 
 let submitBtn = document.getElementById("create-blog");
@@ -51,10 +52,5 @@ updBtn.addEventListener("click", async function () {
   } else alert("Please try again");
 });
 
-
 // Delete Blog
-let deletebt-blog = document.getElementById("deleteBlog").value;
-
-deletebt-blog.addEventListener("click", async function () {
-
-})
+let deleteBtn = document.getElementById("delete-blog").value;
