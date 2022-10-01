@@ -1,16 +1,26 @@
-<div>
-    <h1>Create New Blog
+<div class="create">
+    <div>
+        <h1>Create New Blog</h1>
         <section>
             <h2>Title</h2>
-            <input placeholder="Enter title here" value="{{title}}" id="titleBlog" type="text">
-            <h2>Content</h2>
-            <textarea placeholder="Enter content here" value="{{content}}" id="contentBlog"></textarea>
-            <div id="blog-buttons" class="row">
-                <button type="submit" id="create-blog">Submit</button>
-                <button id="cancel-blog" class="col btn btn-danger m-3">Cancel</button>
-            </div>
-        </section>
-    </h1>
+            <input placeholder="Enter title here" value="{{title}}" id="titleBlog" class="form-input" type="text">
+            <form id="blogForm">
+                <h2>Content</h2>
+                <textarea placeholder="Enter content here" value="{{content}}" id="contentBlog"></textarea>
+
+
+    </div>
+    <div id="blog-buttons" class="row">
+        <button type="success" id="create-blog" class="btn btn-outline-dark m-3">
+            <a href="./dashboard.handlebars>">Submit</a></button>
+
+        <button id="cancel-blog" class="btn btn-warning m-3">Cancel</button>
+        </form>
+    </div>
+    </section>
+</div>
 </div>
 
 <script src="./js/blog.js"></script>
+{{!--
+<script src="./views/dashboard.handlebars>"></script> --}}

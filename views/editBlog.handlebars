@@ -1,0 +1,20 @@
+<div id="prof-container" class="container h-100  m-3 p-3  align-items-center rounded">
+    <h1>Edit Blog</h1>
+    <section>
+        <h3>Title</h3>
+        <input placeholder="Edit title here" value="{{blogEdit.title}}" id="titleEdit" class="form-input" type="text">
+        <h3>Content</h3>
+        <div class="row">
+            <textarea placeholder="Edit content here" id="contentEdit">{{blogEdit.contents}}</textarea>
+        </div>
+        <div id="blog-buttons" class="row">
+            <button type="submit" id="edit-blog" class="col btn btn-outline-dark m-3">Save</a></button>
+
+            <button id="cancel-blog" class="col btn btn-outline-warning m-3"
+                onclick="window.history.back()" />Cancel</button>
+        </div>
+    </section>
+</div>
+
+<script src="./js/blog.js"></script>
+</section>

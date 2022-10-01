@@ -1,33 +1,39 @@
 <div class="dashboard">
     <div>
         <h1>My Blogs</h1>
-
-        <button class="createBtn"><a href="/createBlog">Create</a></button>
     </div>
-    <form id="blogForm">
-        <div id="prof-container" class="container h-100 bg-light align-items-center rounded">
-            <div class="row">
-                <div class="col">
-                    {{#each blogdata}}
-                    <div class="blog-card">
-                        <div class=" form-floating ">
-                            <B> {{title}}</B>
-                            <P> {{contents}}</P>
+    <div>
+        {{!-- <div class="row" button="btn btn-outline-dark-lg" id="createBtn"><a href="/createBlog">Create</a></button>
+            --}}
+            <a href="/createBlog">Create</a>
+        </div>
+    </div>
+    <div>
+        <form id="blogForm">
+            <div id="prof-container" class="container h-100 bg-light align-items-center rounded">
+                <div class="row">
+                    <div class="col">
+                        {{#each blogdata}}
+                        <div class="blog-card">
+                            <div class=" form-floating ">
+                                <B> {{title}}</B>
+                                <P> {{contents}}</P>
+                            </div>
                         </div>
-                    </div>
-                    <div id='blog-buttons' class="row">
+                        <div id='blog-buttons' class="row">
 
-                        <button type="edit" class="col btn btn-edit m-1">Edit</button>
-                        <button id="cancel-blog" class='col btn btn-danger m-1'>Cancel</button>
-                    </div>
-                    {{/each}}
+                            <button type="edit" class="col btn btn-edit m-1"><a href="/blog/{{id}}">Edit</a></button>
+                            <button id="deletebt-blog" class='col btn btn-danger m-1'>Delete</button>
+                        </div>
+                        {{/each}}
 
+                    </div>
                 </div>
             </div>
+        </form>
+        <div id='blog-buttons' class="row" hidden>
+            <button type="submit" class="col btn btn-outline-info m-3">Apply</button>
+            <button id="deletebt-blog" class="col btn btn-outline-danger m-3">Delete</button>
         </div>
-    </form>
-    <div id='blog-buttons' class="row" hidden>
-        <button type="submit" class="col btn btn-success m-3">Apply</button>
-        <button id="cancel-blog" class='col btn btn-danger m-3'>Cancel</button>
     </div>
 </div>

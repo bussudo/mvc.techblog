@@ -93,7 +93,7 @@ aside {
   width:75px
 }
 
-.form-edit{
+.form-edit-pr{
   justify-content: end;
 }
 
@@ -116,7 +116,11 @@ aside {
   margin-left: 60px
 }
 #blog-buttons button{
-  width: 150px
+  width: 100px
+}
+
+.form-edit-blog{
+  justify-content: end;
 }
 
 .col-form-label{

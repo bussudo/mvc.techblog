@@ -85,4 +85,30 @@ router.get("/profile/:id", async (req, res) => {
       res.status(500).json(err);
     });
 });
+
+router.get("/blog/:id", async (req, res) => {
+  try {
+    let blogEdit = await Blog.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!blogEdit) {
+      res.status(400).json("blog not found");
+    }
+    console.log(blogEdit);
+    blogEdit = blogEdit.get({
+      plain: true,
+    });
+
+    res.render("editBlog", {
+      blogEdit,
+      loggedIn: req.session.loggedIn,
+    });
+    // req.status(200).json(blogEdit)
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
