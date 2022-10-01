@@ -101,6 +101,7 @@ router.get("/blog/:id", async (req, res) => {
       plain: true,
     });
 
+    console.log(blogEdit);
     res.render("editBlog", {
       blogEdit,
       loggedIn: req.session.loggedIn,

@@ -43,7 +43,7 @@ updBtn.addEventListener("click", async function () {
   let title = document.getElementById("titleBlog").value;
   let contents = document.getElementById("contentBlog").value;
   let response = await fetch("/api/blogs", {
-    method: "POST",
+    method: "PuT",
     body: JSON.stringify({ title, contents }),
     headers: { "Content-Type": "application/json" },
   });
@@ -54,3 +54,12 @@ updBtn.addEventListener("click", async function () {
 
 // Delete Blog
 let deleteBtn = document.getElementById("delete-blog").value;
+
+let id = deleteBtn.addEventListener("click", async function () {
+  let response = await fetch(`/api/blogs/${id}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else alert("Please try again");
+});
