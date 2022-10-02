@@ -8,7 +8,8 @@
             <textarea placeholder="Edit content here" id="contentEdit">{{blogEdit.contents}}</textarea>
         </div>
         <div id="blog-buttons" class="row">
-            <button type="submit" id="edit-blog" class="col btn btn-outline-dark m-3">Save</a></button>
+            <button type="submit" id="edit-blog" class={{blogEdit.id}}
+                class="col btn btn-outline-dark m-3">Save</a></button>
 
             <button id="cancel-blog" class="col btn btn-outline-warning m-3"
                 onclick="window.history.back()" />Cancel</button>
