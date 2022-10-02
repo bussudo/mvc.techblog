@@ -87,6 +87,8 @@ router.get("/profile/:id", async (req, res) => {
 });
 
 router.get("/blog/:id", async (req, res) => {
+  console.log("finding blog");
+  console.log(req.params.id);
   try {
     let blogEdit = await Blog.findOne({
       where: {

@@ -32,9 +32,11 @@ editBtn.addEventListener("click", async function () {
 // });
 
 // Delete Blog
-let deleteBtn = document.getElementById("delete-blog").value;
 
-let id = deleteBtn.addEventListener("click", async function () {
+let deleteBtn = document.getElementById("delete-blog");
+deleteBtn.addEventListener("click", async function (event) {
+  let id = this.classList.value;
+  console.log(id);
   let response = await fetch(`/api/blogs/${id}`, {
     method: "DELETE",
   });
