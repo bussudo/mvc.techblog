@@ -3,8 +3,8 @@
 let editBtn = document.getElementById("edit-blog");
 
 editBtn.addEventListener("click", async function (event) {
-  let title = document.getElementById("titleblog").value;
-  let contents = document.getElementById("contentblog").value;
+  let title = document.getElementById("titleEdit").value;
+  let contents = document.getElementById("contentEdit").value;
   let id = this.classList.value;
 
   let response = await fetch(`/api/blogs/${id}`, {
