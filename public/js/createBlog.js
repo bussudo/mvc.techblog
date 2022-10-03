@@ -22,7 +22,8 @@ submitBtn.addEventListener("click", async function () {
 });
 
 const timeStamp = new Date().toLocaleTimeString();
-// const blogAuthor = `${firstName} ${lastName}`;
 
-// console.log(timeStamp);
-// console.log(blogAuthor);
+const blogAuthor = `${firstName} ${lastName}`;
+
+console.log(timeStamp);
+console.log(blogAuthor);
