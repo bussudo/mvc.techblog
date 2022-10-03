@@ -1,4 +1,3 @@
-// const { Octokit } = require("@octokit/rest");
 require("dotenv").config();
 
 // const octokit = new Octokit({
@@ -33,6 +32,7 @@ async function homepageList(length) {
   let chosenUsers = [];
   for (let i = 0; i < length; ) {
     let randomUser = hardcodedCringe[getRandomInt(hardcodedCringe.length)];
+    // let randomUser = hardcodedCringe[getRandomInt(hardcodedCringe.length)];
 
     if (!chosenUsers.includes(randomUser.username)) {
       chosenUsers.push(randomUser.username);

@@ -8,14 +8,15 @@
             <textarea placeholder="Edit content here" id="contentEdit">{{blogEdit.contents}}</textarea>
         </div>
         <div id="blog-buttons" class="row">
-            <button type="submit" id="edit-blog" class={{blogEdit.id}}
-                class="col btn btn-outline-dark m-3">Save</a></button>
+            <button type="success" id="edit-blog" class={{blogEdit.id}}
+                class="btn btn-outline-success m-3">Save</a></button>
 
             <button id="cancel-blog" class="col btn btn-outline-warning m-3"
                 onclick="window.history.back()" />Cancel</button>
 
-            console.log({{blogEdit.id}})
-            <button id="delete-blog" class={{blogEdit.id}} class="col btn btn-outline-danger m-3">Delete</button>
+            {{!-- console.log({{blogEdit.id}}) --}}
+            <button type="danger" id="delete-blog" class={{blogEdit.id}}
+                class="btn btn-outline-danger m-3">Delete</button>
         </div>
     </section>
 </div>

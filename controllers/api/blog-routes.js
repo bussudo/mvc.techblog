@@ -4,7 +4,7 @@ const fs = require("fs");
 
 router.get("/", async (req, res) => {
   const blog = await Blog.findAll({ raw: true });
-  console.log("blog", blog);
+  // console.log("blog", blog);
   res.json(blog);
 });
 
@@ -38,7 +38,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 router.delete("/:id", async (req, res) => {
-  console.log(req.params);
+  // console.log(req.params);
   try {
     const blogData = await Blog.destroy({
       where: {

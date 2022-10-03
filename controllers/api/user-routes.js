@@ -6,7 +6,7 @@ const fs = require("fs");
 
 router.get("/", async (req, res) => {
   const users = await User.findAll({ raw: true });
-  console.log("users", users);
+  // console.log("users", users);
   res.json(users);
 });
 
@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
     });
 
     if (!dbUserData) {
-      console.log("No user found");
+      // console.log("No user found");
       res
         .status(400)
         .json({ message: "Incorrect email or password. Please try again!" });

@@ -2,7 +2,7 @@
     <div>
         <h1>My Blogs</h1>
     </div>
-    <div>
+    <div class="row">
         {{!-- <div class="row" button="btn btn-outline-dark-lg" id="createBtn"><a href="/createBlog">Create</a></button>
             --}}
             <a href="/createBlog">Create</a>
@@ -11,23 +11,20 @@
     <div>
         <form id="blogForm">
             <div id="prof-container" class="container h-100 bg-light align-items-center rounded">
-                <div class="row">
-                    <div class="col">
-                        {{#each blogdata}}
-                        <div class="blog-card">
-                            <div class=" form-floating ">
-                                <B> {{title}}</B>
-                                {{!-- <P> {{contents}}</P> --}}
-                            </div>
+                <div class="col">
+                    {{#each blogdata}}
+                    <div class="blog-card">
+                        <div class=" form-floating ">
+                            <B> {{title}}</B>
                         </div>
                         <div id='blog-buttons' class="row">
 
-                            <button type="edit" class="edit-blog"><a href="/Blog/{{id}}">Edit</a></button>
+                            <button type="info" class="btn btn-outline-info m-3" class="edit-blog"><a
+                                    href="/Blog/{{id}}">Edit</a></button>
                         </div>
-                        <P></P>
-                        {{/each}}
-
                     </div>
+                    {{/each}}
+
                 </div>
             </div>
         </form>

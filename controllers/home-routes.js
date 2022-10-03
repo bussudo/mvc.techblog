@@ -15,6 +15,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  console.log("inside the home routes *****************************");
   try {
     const userData = await User.findAll({
       raw: true,
@@ -24,7 +25,7 @@ router.get("/", async (req, res) => {
 
     // blogList = await blogRequest.homepageList(8);
     // blogList = { list: blogList };
-    console.log("userData", userData);
+    console.log("userData: ---------------------->>>>>>", userData);
     req.session.save(() => {
       if (req.session.countVisit) {
         req.session.countVisit++;
@@ -50,7 +51,7 @@ router.get("/profile", async (req, res) => {
   res.render("profile");
 });
 router.get("/dashboard", async (req, res) => {
-  console.log(req.session.userId);
+  // console.log(req.session.userId);
   Blog.findAll({
     where: {
       user_id: req.session.userId,
@@ -58,7 +59,7 @@ router.get("/dashboard", async (req, res) => {
   }).then((blogdata) => {
     blogdata = blogdata.map((blog) => blog.get({ plain: true }));
 
-    console.log(blogdata);
+    // console.log(blogdata);
     res.render("dashboard", {
       blogdata,
       loggedIn: req.session.loggedIn,
@@ -75,7 +76,7 @@ router.get("/profile/:id", async (req, res) => {
   })
     .then((userData) => {
       userData = userData.get({ plain: true });
-      console.log(userData);
+      // console.log(userData);
       res.render("profile", {
         userData,
       });
@@ -87,8 +88,8 @@ router.get("/profile/:id", async (req, res) => {
 });
 
 router.get("/blog/:id", async (req, res) => {
-  console.log("finding blog");
-  console.log(req.params.id);
+  // console.log("finding blog");
+  // console.log(req.params.id);
   try {
     let blogEdit = await Blog.findOne({
       where: {
@@ -98,12 +99,12 @@ router.get("/blog/:id", async (req, res) => {
     if (!blogEdit) {
       res.status(400).json("blog not found");
     }
-    console.log(blogEdit);
+    // console.log(blogEdit);
     blogEdit = blogEdit.get({
       plain: true,
     });
 
-    console.log(blogEdit);
+    // console.log(blogEdit);
     res.render("editBlog", {
       blogEdit,
       loggedIn: req.session.loggedIn,
