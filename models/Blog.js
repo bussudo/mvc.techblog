@@ -26,6 +26,23 @@ Blog.init(
         key: "id",
       },
     },
+    dateCreated: {
+      type: DataTypes.DATE,
+      references: true,
+      allowNull: false,
+    },
+    commenter: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    commentDate: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    comment: {
+      type: DataTypes.TEXT,
+      require: false,
+    },
   },
   {
     sequelize,

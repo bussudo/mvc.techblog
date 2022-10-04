@@ -8,20 +8,20 @@ require("dotenv").config();
 //our rate limit for these requests with octokit is either 1,000/hour or 5,000/hour, I'm honestly not sure
 //Get a backup API key as well for presentation day
 
-let hardcodedCringe = [
-  { firstName: "Casey", lastName: "Chartier", username: "MustyBraid" },
-  { firstName: "Milantea", lastName: "Adams", username: "milantea" },
-  { firstName: "Shannon", lastName: "Kendall", username: "shannie14" },
-  { firstName: "DJ", lastName: "McMillan", username: "deejerz88" },
-  { firstName: "Donna", lastName: "Bussure", username: "bussudo" },
-  { firstName: "Jase", lastName: "Mucene", username: "Jmucene" },
-  { firstName: "Mim", lastName: "Armand", username: "mim-Armand" },
-  { firstName: "Austin", lastName: "Leblanc", username: "austinleblanc" },
-  { firstName: "Derek", lastName: "Hoye", username: "DLHoye" },
-  { firstName: "Justin", lastName: "Thon", username: "Limpbrick" },
-  { firstName: "Doug", lastName: "Schulte", username: "dkschulte" },
-  { firstName: "Grady", lastName: "Peck", username: "GradyPeck" },
-];
+// let hardcodedCringe = [
+//   { firstName: "Casey", lastName: "Chartier", username: "MustyBraid" },
+//   { firstName: "Milantea", lastName: "Adams", username: "milantea" },
+//   { firstName: "Shannon", lastName: "Kendall", username: "shannie14" },
+//   { firstName: "DJ", lastName: "McMillan", username: "deejerz88" },
+//   { firstName: "Donna", lastName: "Bussure", username: "bussudo" },
+//   { firstName: "Jase", lastName: "Mucene", username: "Jmucene" },
+//   { firstName: "Mim", lastName: "Armand", username: "mim-Armand" },
+//   { firstName: "Austin", lastName: "Leblanc", username: "austinleblanc" },
+//   { firstName: "Derek", lastName: "Hoye", username: "DLHoye" },
+//   { firstName: "Justin", lastName: "Thon", username: "Limpbrick" },
+//   { firstName: "Doug", lastName: "Schulte", username: "dkschulte" },
+//   { firstName: "Grady", lastName: "Peck", username: "GradyPeck" },
+// ];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -31,29 +31,27 @@ async function homepageList(length) {
   let final = [];
   let chosenUsers = [];
   for (let i = 0; i < length; ) {
-    let randomUser = hardcodedCringe[getRandomInt(hardcodedCringe.length)];
+    let randomUser = user[getRandomInt(user.length)];
     // let randomUser = hardcodedCringe[getRandomInt(hardcodedCringe.length)];
 
     if (!chosenUsers.includes(randomUser.username)) {
       chosenUsers.push(randomUser.username);
-      a = await githubRequest(randomUser.username, 10);
-      if (a.urls) {
-        for (let j = 0; j < a.urls.length; ) {
-          if (!final.includes(a.urls[j])) {
-            final.push(
-              `${randomUser.name} recently updated a project at ${a.urls[j]}`
-            );
-            i++;
-            break;
-          } else {
-            j++;
-          }
-        }
-      }
+      a = await blogRequest(randomUser.username, 10);
+      // if (a.urls) {
+      //   for (let j = 0; j < a.urls.length; ) {
+      //     if (!final.includes(a.urls[j])) {
+      //       final.push(
+      // `${randomUser.name} recently updated a project at ${a.urls[j]}`
+      `${randomUser.username} recently created a blog `;
+      i++;
+      break;
+    } else {
+      //   j++;
+      // }
     }
   }
-  return final;
 }
+return final;
 
 function contributionFilter(event) {
   if (

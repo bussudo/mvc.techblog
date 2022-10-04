@@ -2,11 +2,13 @@
   {
     "title": "Understanding Regex",
     "contents": "This is a really great article about Regex",
-    "user_id": 1
+    "user_id": 1,
+    "dateCreated": "9/28/2022"
   },
   {
     "title": "Using MangoDB",
     "contents": "Another great article, this one about MangoDB",
-    "user_id":1
+    "user_id":1,
+    "dateCreated": "10/1/2022"
   }
 ]

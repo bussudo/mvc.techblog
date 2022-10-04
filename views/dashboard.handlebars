@@ -1,36 +1,34 @@
 <div class="dashboard">
     <div>
         <h1>My Blogs</h1>
-    </div>
-    <div class="row">
-        {{!-- <div class="row" button="btn btn-outline-dark-lg" id="createBtn"><a href="/createBlog">Create</a></button>
-            --}}
-            <a href="/createBlog">Create</a>
+        <div id='blog-buttons' class="row">
+            <button type="info" class="btn btn-outline-info m-3" class="edit-blog"><a
+                    href="/createBlog">Create</a></button>
+        </div>
+        <div>
+            <form id="blogForm">
+                <div id="prof-container" class="container h-100 bg-light align-items-center rounded">
+                    <div class="col">
+                        <BR>
+                        {{#each blogdata}}
+                        <div class="blog-card">
+                            <div class=" form-floating ">
+                                <B> {{title}}</B>
+                            </div>
+                            <div id='blog-buttons' class="row">
+
+                                <button type="info" class="btn btn-outline-info m-3" class="edit-blog"><a
+                                        href="/Blog/{{id}}">Edit</a></button>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </form>
+            {{!-- <div id='blog-buttons' class="row" hidden>
+                <button type="submit" class="col btn btn-outline-info m-3">Apply</button>
+                <button id="deletebt-blog" class="col btn btn-outline-danger m-3">Delete</button>
+            </div> --}}
         </div>
     </div>
-    <div>
-        <form id="blogForm">
-            <div id="prof-container" class="container h-100 bg-light align-items-center rounded">
-                <div class="col">
-                    {{#each blogdata}}
-                    <div class="blog-card">
-                        <div class=" form-floating ">
-                            <B> {{title}}</B>
-                        </div>
-                        <div id='blog-buttons' class="row">
-
-                            <button type="info" class="btn btn-outline-info m-3" class="edit-blog"><a
-                                    href="/Blog/{{id}}">Edit</a></button>
-                        </div>
-                    </div>
-                    {{/each}}
-
-                </div>
-            </div>
-        </form>
-        {{!-- <div id='blog-buttons' class="row" hidden>
-            <button type="submit" class="col btn btn-outline-info m-3">Apply</button>
-            <button id="deletebt-blog" class="col btn btn-outline-danger m-3">Delete</button>
-        </div> --}}
-    </div>
-</div>

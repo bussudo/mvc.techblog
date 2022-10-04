@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../models");
 //const gitRequest = require("../utils/github.js");
-const blogRequest = require("../utils/blog.js");
+// const blogRequest = require("../utils/blog.js");
 const fs = require("fs");
 
 router.get("/:id", async (req, res) => {
