@@ -28,7 +28,6 @@ Blog.init(
     },
     dateCreated: {
       type: DataTypes.DATE,
-      references: true,
       allowNull: false,
     },
     commenter: {
