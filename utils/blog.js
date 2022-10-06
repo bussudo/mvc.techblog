@@ -27,22 +27,22 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-async function homepageList(length) {
+async function blogList(length) {
   let final = [];
   let chosenUsers = [];
   for (let i = 0; i < length; ) {
     let randomUser = user[getRandomInt(user.length)];
     // let randomUser = hardcodedCringe[getRandomInt(hardcodedCringe.length)];
 
-    if (!chosenUsers.includes(randomUser.username)) {
-      chosenUsers.push(randomUser.username);
-      a = await blogRequest(randomUser.username, 10);
+    if (!chosenUsers.includes(randomUser.email)) {
+      chosenUsers.push(randomUser.email);
+      a = await blogRequest(randomUser.email, 10);
       // if (a.urls) {
       //   for (let j = 0; j < a.urls.length; ) {
       //     if (!final.includes(a.urls[j])) {
       //       final.push(
       // `${randomUser.name} recently updated a project at ${a.urls[j]}`
-      `${randomUser.username} recently created a blog `;
+      `${randomUser.email} recently created a blog `;
       i++;
       break;
     } else {
@@ -79,7 +79,7 @@ function uniqueFilter(event) {
   return [urls, goodEvents];
 }
 
-// const githubRequest = async (username, number) => {
+// const blogRequest = async (username, number) => {
 //   let { data: publicEvents } = await octokit.request(
 //     "GET /users/{username}/events/public",
 //     {
@@ -94,5 +94,5 @@ function uniqueFilter(event) {
 //   return formattedEvents;
 // };
 
-// homepageList(5);
-// module.exports = { githubRequest, homepageList };
+blogList(5);
+module.exports = { blogRequest, blogList };

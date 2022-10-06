@@ -5,7 +5,7 @@ let submitBtn = document.getElementById("create-blog");
 submitBtn.addEventListener("click", async function () {
   let title = document.getElementById("titleBlog").value;
   let contents = document.getElementById("contentBlog").value;
-  let dateCreated;
+  let dateCreated = document.getElementById("dateCreated").value;
   let response = await fetch("/api/blogs", {
     method: "POST",
     body: JSON.stringify({ title, contents }),

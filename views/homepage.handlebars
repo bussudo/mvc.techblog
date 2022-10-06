@@ -101,25 +101,25 @@
 
 
 <div class="container w-50 flex-column justify-content-center align-items-center">
-
+  <h3>Click on a blog below . . . </h3>
   <ul>
-    {{#each blogList.list}}
-    <li>{{this}}</li>
+    {{#each blogData}}
+    <li><a href="/comment/Blog/{{id}}">{{title}}</a></li>
     {{/each}}
   </ul>
 
-  {{#each users as |user|}}
+  {{#each users as |email|}}
   <div class="row align-center mb-5">
     <div class="col-md-6">
       <h2>
-        {{user.name}}
+        {{user.email}}
       </h2>
     </div>
     <div class="col-md-6">
       <h3>
-        <a href="mailto:{{user.email}}">
+        {{!-- <a href="mailto:{{user.email}}">
           {{user.email}}
-        </a>
+        </a> --}}
       </h3>
     </div>
   </div>

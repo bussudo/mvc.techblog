@@ -29,18 +29,7 @@ Blog.init(
     dateCreated: {
       type: DataTypes.DATE,
       allowNull: false,
-    },
-    commenter: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    commentDate: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
-    comment: {
-      type: DataTypes.TEXT,
-      require: false,
+      defaultValue: DataTypes.NOW,
     },
   },
   {

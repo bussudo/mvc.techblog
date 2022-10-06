@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Blog } = require("../models");
+const { User, Blog, Comment } = require("../models");
 
 router.get("/createBlog", (req, res) => {
   res.render("createBlog");
@@ -17,28 +17,14 @@ router.get("/login", (req, res) => {
 router.get("/", async (req, res) => {
   console.log("inside the home routes *****************************");
   try {
-    const userData = await User.findAll({
+    const blogData = await Blog.findAll({
       raw: true,
-      attributes: { exclude: ["password"] },
-      order: [["email", "ASC"]],
     });
 
     // blogList = await blogRequest.homepageList(8);
     // blogList = { list: blogList };
-    console.log("userData: ---------------------->>>>>>", userData);
-    req.session.save(() => {
-      if (req.session.countVisit) {
-        req.session.countVisit++;
-      } else {
-        req.session.countVisit = 1;
-      }
-      res.render("homepage", {
-        userData,
-        userId: req.session.userId,
-        loggedIn: req.session.loggedIn,
-        countVisit: req.session.countVisit,
-      });
-    });
+    console.log("blogData: ---------------------->>>>>>", blogData);
+    res.render("homepage", { blogData, loggedIn: req.session.loggedIn });
   } catch (err) {
     g(err);
     res.status(500).json(err);
@@ -115,4 +101,32 @@ router.get("/blog/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/comment/Blog/:id", async (req, res) => {
+  try {
+    let blogComment = await Blog.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [User],
+    });
+    if (!blogComment) {
+      res.status(400).json("blog not found");
+    }
+
+    blogComment = blogComment.get({
+      plain: true,
+    });
+    console.log(blogComment);
+
+    res.render("blogComment", {
+      blogComment,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
