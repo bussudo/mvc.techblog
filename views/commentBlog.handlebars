@@ -2,27 +2,30 @@
 
     <h1>{{blogComment.title}}</h1>
     <section width=100%>
-        <h3>By: {{blogComment.user.email}}</h3>
-        <P>Posted on: {{blogComment.dateCreated}}</P>
-        <P></P>
-        <P>{{blogComment.contents}}</P>
-        <P>
+        <h2>By: {{blogComment.user.email}}</h2>
+        <h2>Posted on: {{blogComment.dateCreated}}</h2>
+        <h2>{{blogComment.contents}}</h2>
 
-        </P>
-        <textarea cols="100" placeholder="Feel free to leave a comment here . . . " value="{{comment}}" id="commentBlog"
-            class=" form form-input" type="text"></textarea>
-        <P><label value="{{commentDate}}" id="date-comment">
+        <h1>Comments</h1>
+        <div class="listComments">
+
+        </div>
+
+        {{!-- <P><label value="{{commentDate}}" id="date-comment">
             </label></P>
-        <P><label value="{{comment.user.email}}"></label></P>
+        <P><label value="{{comment.user.email}}"></label></P> --}}
 
 </div>
+{{#if loggedIn}}
 <div id="blog-buttons" class="row">
-    <button type="success" id="comment-blog" class="btn btn-outline-dark m-3">Save</button>
+    <h1>Add Comment: </h1>
+    <textarea class="contentArea" placeholder="Feel free to leave a comment here . . . " value="{{comment}}"
+        id="commentBlog" class=" form form-input" type="text"></textarea>
 
+    <button type="success" id="comment-blog" class="btn btn-outline-dark m-3">Save</button>
     <button id="cancel-blog" class="col btn btn-outline-warning m-3" onclick="window.history.back()" />Cancel</button>
 
 </div>
-</section>
-</div>
+{{/if}}
 
 <script src="/js/commentBlog.js"></script>

@@ -108,7 +108,7 @@ router.get("/comment/Blog/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      include: [User],
+      include: [User, Comment],
     });
     if (!blogComment) {
       res.status(400).json("blog not found");
@@ -117,9 +117,9 @@ router.get("/comment/Blog/:id", async (req, res) => {
     blogComment = blogComment.get({
       plain: true,
     });
-    console.log(blogComment);
+    console.log("THIS IS BLOG: ", blogComment);
 
-    res.render("blogComment", {
+    res.render("commentBlog", {
       blogComment,
       loggedIn: req.session.loggedIn,
     });
