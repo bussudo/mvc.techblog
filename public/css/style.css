@@ -142,11 +142,10 @@ img {
   display: flex;
   width: max-content;
 }
-.dashboard div {
-
-}
-.submitBtn {
-  
+.blogform div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .blog-card {
