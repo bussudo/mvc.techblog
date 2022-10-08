@@ -8,7 +8,6 @@ submitBtn.addEventListener("click", async function () {
   let contents = document.getElementById("contentBlog").value;
 
   let dateCreated = document.getElementById("createDateBlog").value;
-  console.log(title, contents, dateCreated);
   let response = await fetch("/api/blogs", {
     method: "POST",
     body: JSON.stringify({ title, contents }),
