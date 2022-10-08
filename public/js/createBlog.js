@@ -3,9 +3,12 @@
 let submitBtn = document.getElementById("create-blog");
 
 submitBtn.addEventListener("click", async function () {
+  event.preventDefault();
   let title = document.getElementById("titleBlog").value;
   let contents = document.getElementById("contentBlog").value;
-  let dateCreated = document.getElementById("dateCreated").value;
+
+  let dateCreated = document.getElementById("createDateBlog").value;
+  console.log(title, contents, dateCreated);
   let response = await fetch("/api/blogs", {
     method: "POST",
     body: JSON.stringify({ title, contents }),
