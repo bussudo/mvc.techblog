@@ -1,14 +1,16 @@
 <div class="container h-100  m-3 p-3  align-items-center rounded">
 
     <h1>{{blogComment.title}}</h1>
-    <section width=100%>
+    <section id="blogInfo" data-id={{blogComment.id}} width=100%>
         <h2>By: {{blogComment.user.email}}</h2>
         <h2>Posted on: {{blogComment.dateCreated}}</h2>
         <h2>{{blogComment.contents}}</h2>
 
         <h1>Comments</h1>
         <div class="listComments">
-
+            {{#each blogComment.comments}}
+            <h3>{{comment}}</h3>
+            {{/each}}
         </div>
 
         {{!-- <P><label value="{{commentDate}}" id="date-comment">
@@ -20,7 +22,7 @@
 <div id="blog-buttons" class="row">
     <h1>Add Comment: </h1>
     <textarea class="contentArea" placeholder="Feel free to leave a comment here . . . " value="{{comment}}"
-        id="commentBlog" class=" form form-input" type="text"></textarea>
+        id="contentComment" class=" form form-input" type="text"></textarea>
 
     <button type="success" id="comment-blog" class="btn btn-outline-dark m-3">Save</button>
     <button id="cancel-blog" class="col btn btn-outline-warning m-3" onclick="window.history.back()" />Cancel</button>
