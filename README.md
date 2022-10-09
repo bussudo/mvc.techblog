@@ -14,7 +14,7 @@ Handlebars
 
 ### Screenshot
 
-![Alt Text](./public/img/mvcblog.png)
+![Alt Text](./img/mvcblog.png)
 
 ### Link to Deployed
 ```
