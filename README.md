@@ -14,7 +14,7 @@ Handlebars
 
 ### Screenshot
 
-![Alt Text](https://github.com/bussudo/mvc.techblog/edit/main/img/mvcblog.png)
+![Alt Text](https://github.com/bussudo/mvc.techblog/tree/main/public/img/screenshot.png)
 
 ### Link to Deployed
 ```
